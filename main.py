@@ -9,7 +9,14 @@ class Face_Recognition_System:
         self.root.geometry("1530x790+0+0")
         self.root.title("Face Recognition System")
 
+        img=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\IcbtLogo.jpg")
+        img=img.resize((500,130),Image.ANTIALIAS)
+        self.photoimg=ImageTk.PhotoImage(img)
 
+        f_lbl=Label(self.root,image=self.photoimg)
+        f_lbl.place(x=0, y=0, width=500, height=130)
+
+a
 
 
 
