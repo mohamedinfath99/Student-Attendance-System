@@ -28,11 +28,20 @@ class Face_Recognition_System:
 
         # Third Image 
         img2=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\cardiff.jpg")
-        img2=img2.resize((500,150),Image.ANTIALIAS)
+        img2=img2.resize((520,150),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
         f_lbl=Label(self.root,image=self.photoimg2)
-        f_lbl.place(x=1000, y=0, width=500, height=150)
+        f_lbl.place(x=1000, y=0, width=520, height=150)
+
+
+        # Background Image
+        img3=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\Teacher-with-students-1.jpg")
+        img3=img3.resize((1530,710),Image.ANTIALIAS)
+        self.photoimg3=ImageTk.PhotoImage(img3)
+
+        bg_img=Label(self.root,image=self.photoimg3)
+        bg_img.place(x=0, y=150, width=1530, height=710)
 
 
 
