@@ -7,7 +7,7 @@ class Face_Recognition_System:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1530x790+0+0")
-        self.root.title("Face Recognition System")
+        self.root.title("Student Attendance System")
 
 
         # First Image
@@ -43,6 +43,8 @@ class Face_Recognition_System:
         bg_img=Label(self.root,image=self.photoimg3)
         bg_img.place(x=0, y=150, width=1530, height=710)
 
+        title_lbl=Label(bg_img,text="ICBT CAMPUS - STUDENT ATTENDENCE SYSTEM",font=("times new roman",28,"bold"),bg="grey",fg="black")
+        title_lbl.place(x=0,y=0,width=1530,height=50)
 
 
 
