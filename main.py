@@ -3,7 +3,7 @@ from tkinter import ttk
 from PIL import Image,ImageTk
 
 
-class Face_Recognition_System:
+class Student_Attendance_System:
     def __init__(self,root):
         self.root=root
         self.root.geometry("1530x790+0+0")
@@ -150,5 +150,5 @@ class Face_Recognition_System:
 
 if __name__ == "__main__":
     root=Tk()
-    obj=Face_Recognition_System(root)
+    obj=Student_Attendance_System(root)
     root.mainloop()
