@@ -269,6 +269,41 @@ class Student:
         showAll_btn.grid(row=0,column=4)
 
 
+        table_frame=Frame(Right_frame,bd=2,bg="white",relief=RIDGE)
+        table_frame.place(x=5,y=100,width=670,height=432)
+
+        scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
+        scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
+       
+        self.student_table=ttk.Treeview(table_frame,columns=("dep", "course" ,"year", "sem", "id", "div", "roll", "gender","dob", "phone", "address", "teacher", "photo"), xscrollcommand=scroll_x.set,yscrollcommand=scroll_y.set)
+
+        scroll_x.pack(side=BOTTOM,fill=X)
+        scroll_y.pack(side=RIGHT,fill=Y)
+        scroll_x.config(command=self.student_table.xview)
+        scroll_y.config(command=self.student_table.yview)
+
+        self.student_table.heading("dep", text="Department")
+        self.student_table.heading("course", text="Course")
+        self.student_table.heading("year", text="Year")
+        self.student_table.heading("sem", text="Semester")
+        self.student_table.heading("id", text="ID")
+        self.student_table.heading("div", text="Division")
+        self.student_table.heading("roll", text="Roll No")
+        self.student_table.heading("gender", text="Gender")
+        self.student_table.heading("dob", text="DOB")
+        self.student_table.heading("phone", text="Phone")
+        self.student_table.heading("address", text="Address")
+        self.student_table.heading("teacher", text="Teacher")
+        self.student_table.heading("photo", text="PhotoSampleStatus")
+        self.student_table["show"]="headings"
+
+        self.student_table.column("dep",width=200)
+
+        self.student_table.pack(fill=BOTH,expand=1)
+
+        
+
+
 
 
 
