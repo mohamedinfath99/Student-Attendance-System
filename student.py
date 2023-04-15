@@ -297,7 +297,19 @@ class Student:
         self.student_table.heading("photo", text="PhotoSampleStatus")
         self.student_table["show"]="headings"
 
-        self.student_table.column("dep",width=200)
+        self.student_table.col("dep",width=100)
+        self.student_table.col("course",width=100)
+        self.student_table.col("year",width=100)
+        self.student_table.col("sem",width=100)
+        self.student_table.col("id",width=100)
+        self.student_table.col("div",width=100)
+        self.student_table.col("roll",width=100)
+        self.student_table.col("gender",width=100)
+        self.student_table.col("dob",width=100)
+        self.student_table.col("phone",width=100)
+        self.student_table.col("address",width=100)
+        self.student_table.col("teacher",width=100)
+        self.student_table.col("photo",width=100)
 
         self.student_table.pack(fill=BOTH,expand=1)
 
