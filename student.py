@@ -238,16 +238,41 @@ class Student:
         update_photo_btn.grid(row=0,column=1)
 
 
-
-
-
-
-
-
-
         # Right Label Frame
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="STUDENT DETAILS", font=("times new roman",12,"bold"))
         Right_frame.place(x=790,y=10,width=690,height=560)
+
+
+        # search syterm
+        Search_frame=LabelFrame(Right_frame,bd=2,bg="white",relief=RIDGE,text="SEARCH SYSTEM", font=("times new roman",12,"bold"))
+        Search_frame.place(x=5,y=10,width=670,height=70)
+
+        search_label=Label(Search_frame,text="Search By:",font=("times new roman",13,"bold"),bg="white")
+        search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
+
+
+        search_combo=ttk.Combobox(Search_frame,font=("times new roman",13,"bold"),state="readonly",width=15)
+        search_combo["values"]=("Select","Roll_No","Phone_No")
+        search_combo.current(0)
+        search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
+
+
+        search_entry=ttk.Entry(Search_frame,width=15,font=("times new roman",13,"bold"))
+        search_entry.grid(row=0,column=2,padx=10,pady=5,sticky=W)
+
+
+        search_btn=Button(Search_frame,text="Search",width=11,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        search_btn.grid(row=0,column=3,padx=4)
+
+
+        showAll_btn=Button(Search_frame,text="Show All",width=11,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        showAll_btn.grid(row=0,column=4)
+
+
+
+
+
+
 
 
 
