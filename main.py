@@ -108,7 +108,6 @@ class Student_Attendance_System:
         b1_1.place(x=200,y=580,width=220,height=40)
 
 
-
         # Photos Button
         img9=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\photos.jpeg")
         img9=img9.resize((220,220),Image.ANTIALIAS)
@@ -149,10 +148,6 @@ class Student_Attendance_System:
     def student_details(self):
         self.new_window=Toplevel(self.root)
         self.app=Student( self.new_window)
-
-
-
-
 
 
 
