@@ -13,7 +13,7 @@ class Student_Attendance_System:
 
 
         # First Image
-        img=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\IcbtLogo.jpg")
+        img=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\IcbtLogo.jpg")
         img=img.resize((500,150),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -21,7 +21,7 @@ class Student_Attendance_System:
         f_lbl.place(x=0, y=0, width=500, height=150)
 
         # Second Image
-        img1=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\facialrecognition.png")
+        img1=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\facialrecognition.png")
         img1=img1.resize((500,150),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -29,7 +29,7 @@ class Student_Attendance_System:
         f_lbl.place(x=500, y=0, width=500, height=150)
 
         # Third Image 
-        img2=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\cardiff.jpg")
+        img2=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\cardiff.jpg")
         img2=img2.resize((520,150),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -38,7 +38,7 @@ class Student_Attendance_System:
 
 
         # Background Image
-        img3=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\Teacher-with-students-1.jpg")
+        img3=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\Teacher-with-students-1.jpg")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -49,7 +49,7 @@ class Student_Attendance_System:
         title_lbl.place(x=0,y=0,width=1530,height=50)
 
         # Student Button
-        img4=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\std.jpg")
+        img4=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\std.jpg")
         img4=img4.resize((220,220),Image.ANTIALIAS)
         self.photoimg4=ImageTk.PhotoImage(img4)
 
@@ -61,7 +61,7 @@ class Student_Attendance_System:
 
 
         # Detect Face Button
-        img5=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\fad.jpg")
+        img5=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\fad.jpg")
         img5=img5.resize((220,220),Image.ANTIALIAS)
         self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -73,7 +73,7 @@ class Student_Attendance_System:
 
 
         # Attendence Button
-        img6=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\attendant.jpg")
+        img6=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\attendant.jpg")
         img6=img6.resize((220,220),Image.ANTIALIAS)
         self.photoimg6=ImageTk.PhotoImage(img6)
 
@@ -85,7 +85,7 @@ class Student_Attendance_System:
 
 
         # Register New Admin Button
-        img7=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\employee.jpg")
+        img7=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\employee.jpg")
         img7=img7.resize((220,220),Image.ANTIALIAS)
         self.photoimg7=ImageTk.PhotoImage(img7)
 
@@ -97,7 +97,7 @@ class Student_Attendance_System:
 
 
         # Train Data Button
-        img8=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\traindata.jpg")
+        img8=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\traindata.jpg")
         img8=img8.resize((220,220),Image.ANTIALIAS)
         self.photoimg8=ImageTk.PhotoImage(img8)
 
@@ -109,7 +109,7 @@ class Student_Attendance_System:
 
 
         # Photos Button
-        img9=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\photos.jpeg")
+        img9=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\photos.jpeg")
         img9=img9.resize((220,220),Image.ANTIALIAS)
         self.photoimg9=ImageTk.PhotoImage(img9)
 
@@ -121,7 +121,7 @@ class Student_Attendance_System:
 
 
         # Developer Button
-        img10=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\developer.jpg")
+        img10=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\developer.jpg")
         img10=img10.resize((220,220),Image.ANTIALIAS)
         self.photoimg10=ImageTk.PhotoImage(img10)
 
@@ -133,7 +133,7 @@ class Student_Attendance_System:
 
 
         # Exit Button
-        img11=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\exit.jpg")
+        img11=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\exit.jpg")
         img11=img11.resize((220,220),Image.ANTIALIAS)
         self.photoimg11=ImageTk.PhotoImage(img11)
 
