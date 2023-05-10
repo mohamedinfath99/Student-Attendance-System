@@ -149,7 +149,7 @@ class Student_Attendance_System:
         b1_1.place(x=1100,y=580,width=220,height=40)
 
 
-    # Functions Button
+    # Button Function
     def student_details(self):
         self.new_window=Toplevel(self.root)
         self.app=Student( self.new_window)
