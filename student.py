@@ -3,6 +3,7 @@ from tkinter import ttk
 from PIL import Image,ImageTk
 from tkinter import messagebox
 import mysql.connector
+import cv2
 
 
 class Student:
@@ -12,7 +13,7 @@ class Student:
         self.root.title("Student Attendance System")
 
 
-        # variables
+        # Variables
         self.var_dep=StringVar()
         self.var_course=StringVar()
         self.var_year=StringVar()
@@ -29,25 +30,26 @@ class Student:
         self.var_teacher=StringVar()
         
 
-
         # First Image
-        img=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\IcbtLogo.jpg")
+        img=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\IcbtLogo.jpg")
         img=img.resize((500,150),Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
         f_lbl=Label(self.root,image=self.photoimg)
         f_lbl.place(x=0, y=0, width=500, height=150)
 
+
         # Second Image
-        img1=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\facialrecognition.png")
+        img1=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\facialrecognition.png")
         img1=img1.resize((500,150),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
         f_lbl=Label(self.root,image=self.photoimg1)
         f_lbl.place(x=500, y=0, width=500, height=150)
 
+
         # Third Image 
-        img2=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\cardiff.jpg")
+        img2=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\cardiff.jpg")
         img2=img2.resize((520,150),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -56,7 +58,7 @@ class Student:
 
 
         # Background Image
-        img3=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\Teacher-with-students-1.jpg")
+        img3=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\Teacher-with-students-1.jpg")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -67,15 +69,18 @@ class Student:
         title_lbl.place(x=0,y=0,width=1530,height=45)
 
 
+        # Main Frame
         main_frame=Frame(bg_img,bd=2,bg="white")
         main_frame.place(x=10,y=50,width=1500,height=575)
 
 
-        # Left Label Frame
+        # Main Frame ---> Left Label Frame - STUDENT DETAILS
         Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="STUDENT DETAILS", font=("times new roman",12,"bold"))
         Left_frame.place(x=10,y=2,width=760,height=570)
 
-        img_left=Image.open(r"D:\05. ICBT Notes\Student-Attendance-System\college_images\student.jpg")
+
+        # Left Label Frame - Image
+        img_left=Image.open(r"D:\01. Project\Student-Attendance-System\college_images\student.jpg")
         img_left=img_left.resize((720,150),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -83,12 +88,12 @@ class Student:
         f_lbl.place(x=15, y=3, width=720, height=130)
 
 
-        # Current Course
+        # Main Frame ---> Left Label Frame ---> Current Course Frame - CURRENT COURSE INFORMATION
         current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="CURRENT COURSE INFORMATION", font=("times new roman",12,"bold"))
         current_course_frame.place(x=5,y=135,width=740,height=115)
 
 
-        # Department
+        # CURRENT COURSE INFORMATION - Department
         dep_label=Label(current_course_frame,text="Department",font=("times new roman",13,"bold"),bg="white")
         dep_label.grid(row=0,column=0,padx=10,sticky=W)
 
@@ -98,7 +103,7 @@ class Student:
         dep_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
 
-        # Course
+        # CURRENT COURSE INFORMATION - Course
         course_label=Label(current_course_frame,text="Course",font=("times new roman",13,"bold"),bg="white")
         course_label.grid(row=0,column=2,padx=10,sticky=W)
 
@@ -108,7 +113,7 @@ class Student:
         course_combo.grid(row=0,column=3,padx=2,pady=10,sticky=W)
 
 
-        # Year
+        # CURRENT COURSE INFORMATION - Year
         year_label=Label(current_course_frame,text="Year",font=("times new roman",13,"bold"),bg="white")
         year_label.grid(row=1,column=0,padx=10,sticky=W)
 
@@ -118,7 +123,7 @@ class Student:
         year_combo.grid(row=1,column=1,padx=2,pady=10,sticky=W)
 
 
-        # Semester
+        # CURRENT COURSE INFORMATION - Semester
         semester_label=Label(current_course_frame,text="Semester",font=("times new roman",13,"bold"),bg="white")
         semester_label.grid(row=1,column=2,padx=10,sticky=W)
 
@@ -128,11 +133,12 @@ class Student:
         semester_combo.grid(row=1,column=3,padx=2,pady=10,sticky=W)
 
 
-        # Class Student Information
+        # Main Frame ---> Left Label Frame ---> Class Student Frame - CLASS STUDENT INFORMATION
         class_student_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="CLASS STUDENT INFORMATION", font=("times new roman",12,"bold"))
         class_student_frame.place(x=5,y=250,width=740,height=295)
 
-        #student id
+
+        # CLASS STUDENT INFORMATION - student id
         studentId_label=Label(class_student_frame,text="Student ID:",font=("times new roman",13,"bold"),bg="white")
         studentId_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
 
@@ -140,7 +146,7 @@ class Student:
         studentId_entry.grid(row=0,column=1,padx=10,pady=5,sticky=W)
 
 
-        #student name
+        # CLASS STUDENT INFORMATION - student name
         studentName_label=Label(class_student_frame,text="Student Name:",font=("times new roman",13,"bold"),bg="white")
         studentName_label.grid(row=0,column=2,padx=10,pady=5,sticky=W)
 
@@ -148,7 +154,7 @@ class Student:
         studentName_entry.grid(row=0,column=3,padx=10,pady=5,sticky=W)
 
 
-        #Class Division
+        # CLASS STUDENT INFORMATION - Class Division
         class_div_label=Label(class_student_frame,text="Class Division:",font=("times new roman",13,"bold"),bg="white")
         class_div_label.grid(row=1,column=0,padx=10,pady=5,sticky=W)
         
@@ -158,9 +164,7 @@ class Student:
         div_combo.grid(row=1,column=1,padx=10,pady=5,sticky=W)
 
 
-
-
-        #Roll No
+        # CLASS STUDENT INFORMATION - Roll No
         roll_no_label=Label(class_student_frame,text="Roll No:",font=("times new roman",13,"bold"),bg="white")
         roll_no_label.grid(row=1,column=2,padx=10,pady=5,sticky=W)
 
@@ -168,7 +172,7 @@ class Student:
         roll_no_entry.grid(row=1,column=3,padx=10,pady=5,sticky=W)
 
 
-        # Gender
+        # CLASS STUDENT INFORMATION - Gender
         gender_label=Label(class_student_frame,text="Gender:",font=("times new roman",13,"bold"),bg="white")
         gender_label.grid(row=2,column=0,padx=10,pady=5,sticky=W)
 
@@ -178,8 +182,7 @@ class Student:
         gender_combo.grid(row=2,column=1,padx=10,pady=5,sticky=W)
 
 
-
-        # DOB
+        # CLASS STUDENT INFORMATION - DOB
         dob_label=Label(class_student_frame,text="DOB:",font=("times new roman",13,"bold"),bg="white")
         dob_label.grid(row=2,column=2,padx=10,pady=5,sticky=W)
 
@@ -187,7 +190,7 @@ class Student:
         dob_entry.grid(row=2,column=3,padx=10,pady=5,sticky=W)
 
 
-        # Email
+        # CLASS STUDENT INFORMATION - Email
         email_label=Label(class_student_frame,text="Email:",font=("times new roman",13,"bold"),bg="white")
         email_label.grid(row=3,column=0,padx=10,pady=5,sticky=W)
 
@@ -195,7 +198,7 @@ class Student:
         email_entry.grid(row=3,column=1,padx=10,pady=5,sticky=W)
 
 
-        # Phone No
+        # CLASS STUDENT INFORMATION - Phone No
         phone_label=Label(class_student_frame,text="Phone No:",font=("times new roman",13,"bold"),bg="white")
         phone_label.grid(row=3,column=2,padx=10,pady=5,sticky=W)
 
@@ -203,7 +206,7 @@ class Student:
         phone_entry.grid(row=3,column=3,padx=10,pady=5,sticky=W)
 
 
-        # Address
+        # CLASS STUDENT INFORMATION - Address
         address_label=Label(class_student_frame,text="Address:",font=("times new roman",13,"bold"),bg="white")
         address_label.grid(row=4,column=0,padx=10,pady=5,sticky=W)
 
@@ -211,93 +214,101 @@ class Student:
         address_entry.grid(row=4,column=1,padx=10,pady=5,sticky=W)
 
 
-        # Teacher Name
+        # CLASS STUDENT INFORMATION - Teacher Name
         teacher_label=Label(class_student_frame,text="Teacher Name:",font=("times new roman",13,"bold"),bg="white")
         teacher_label.grid(row=4,column=2,padx=10,pady=5,sticky=W)
 
         teacher_entry=ttk.Entry(class_student_frame,textvariable=self.var_teacher,width=20,font=("times new roman",13,"bold"))
         teacher_entry.grid(row=4,column=3,padx=10,pady=5,sticky=W)
 
-        # radio Buttons
+
+        # CLASS STUDENT INFORMATION - radio Buttons
         self.var_radio1=StringVar()
         radiobtn1=ttk.Radiobutton(class_student_frame,variable=self.var_radio1,text="Take Photo Sample",value="Yes")
         radiobtn1.grid(row=5,column=0)
 
-
         radiobtn2=ttk.Radiobutton(class_student_frame,variable=self.var_radio1,text="No Photo Sample",value="No")
         radiobtn2.grid(row=5,column=1)
 
-        # button Frame
+
+        # Main Frame ---> Button Frame 1
         btn_frame=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame.place(x=5,y=210,width=720,height=35)
 
 
-        # save button
+        # Button Frame 1 - save button
         save_btn=Button(btn_frame,text="Save",command=self.add_data,width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
         save_btn.grid(row=0,column=0,)
 
 
-        # update button
+        # Button Frame 1 - update button
         update_btn=Button(btn_frame,text="Update",command=self.update_data,width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
         update_btn.grid(row=0,column=2)
 
 
-        # delete button
+        # Button Frame 1 - delete button
         delete_btn=Button(btn_frame,text="Delete",command=self.delete_data,width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
         delete_btn.grid(row=0,column=3)
 
 
-        # reset button
+        # Button Frame 1 - reset button
         reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman",13,"bold"),bg="blue",fg="white")
         reset_btn.grid(row=0,column=4)
 
 
-        # button Frame
+        # Main Frame ---> Button Frame 2
         btn_frame1=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
         btn_frame1.place(x=5,y=240,width=720,height=35)
 
 
-        # take photo sample button
-        take_photo_btn=Button(btn_frame1,text="Take Photo Sample",width=35,font=("times new roman",13,"bold"),bg="blue",fg="white")
+        # Button Frame 2 - take photo sample button
+        take_photo_btn=Button(btn_frame1,command=self.generate_dataset,text="Take Photo Sample",width=35,font=("times new roman",13,"bold"),bg="blue",fg="white")
         take_photo_btn.grid(row=0,column=0)
 
 
-        # update photo sample button
+        # Button Frame 2 - update photo sample button
         update_photo_btn=Button(btn_frame1,text="Update Photo Sample",width=35,font=("times new roman",13,"bold"),bg="blue",fg="white")
         update_photo_btn.grid(row=0,column=1)
 
 
-        # Right Label Frame
+        # Main Frame ---> Right Label Frame - STUDENT DETAILS
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="STUDENT DETAILS", font=("times new roman",12,"bold"))
         Right_frame.place(x=790,y=10,width=690,height=560)
 
 
-        # search syterm
+        # Main Frame ---> Right Label Frame --->  Search Frame - SEARCH SYSTEM
         Search_frame=LabelFrame(Right_frame,bd=2,bg="white",relief=RIDGE,text="SEARCH SYSTEM", font=("times new roman",12,"bold"))
         Search_frame.place(x=5,y=10,width=670,height=70)
 
+
+        # SEARCH SYSTEM - label -Search By:
         search_label=Label(Search_frame,text="Search By:",font=("times new roman",13,"bold"),bg="white")
         search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
 
 
+        # SEARCH SYSTEM - Combo Box
         search_combo=ttk.Combobox(Search_frame,font=("times new roman",13,"bold"),state="readonly",width=15)
         search_combo["values"]=("Select","Roll_No","Phone_No")
         search_combo.current(0)
         search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
 
+        # SEARCH SYSTEM - Input
         search_entry=ttk.Entry(Search_frame,width=15,font=("times new roman",13,"bold"))
         search_entry.grid(row=0,column=2,padx=10,pady=5,sticky=W)
 
 
+        # SEARCH SYSTEM - Search Button
         search_btn=Button(Search_frame,text="Search",width=11,font=("times new roman",12,"bold"),bg="blue",fg="white")
         search_btn.grid(row=0,column=3,padx=4)
 
 
+        # SEARCH SYSTEM - ShowAll Button
         showAll_btn=Button(Search_frame,text="Show All",width=11,font=("times new roman",12,"bold"),bg="blue",fg="white")
         showAll_btn.grid(row=0,column=4)
 
 
+        # Main Frame ---> Right Label Frame ---> Table Frame  
         table_frame=Frame(Right_frame,bd=2,bg="white",relief=RIDGE)
         table_frame.place(x=5,y=100,width=670,height=432)
 
@@ -345,10 +356,12 @@ class Student:
         self.student_table.column("photo",width=100)
 
         self.student_table.pack(fill=BOTH,expand=1)
+
         self.student_table.bind("<ButtonRelease>",self.get_cursor)
         self.fetch_data()
 
-    #==============function decration=================
+
+    # Create Data ------------>
     def add_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
             messagebox.showerror("Validation Error", "All Fields are required",parent=self.root)
@@ -380,9 +393,8 @@ class Student:
             except Exception as es:
                 messagebox.showerror("Error",f"Due To :{str(es)}",parent=self.root)
 
-           
 
-    #=====================Fetch Data============================
+    # Get All Data ------------>
     def fetch_data(self):
         conn=mysql.connector.connect(host="localhost", username="root", password="Imath@123",database="icbtcampus")
         my_cursor=conn.cursor()
@@ -396,9 +408,8 @@ class Student:
             conn.commit()
         conn.close()
 
-    
 
-    #========== Get Cursor============
+    # Get Single Data ------------>
     def get_cursor(self,event=""):
         cursor_focus=self.student_table.focus()
         content=self.student_table.item(cursor_focus)
@@ -421,14 +432,13 @@ class Student:
         self.var_radio1.set(data[14])
 
     
-
-    #================== Update function =============
+    # Update Data ------------>
     def update_data(self):
         if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
-            messagebox.showerror("Validation Error", "All Fields are required",parent=self.root)
+            messagebox.showerror("Validation Error", "All fields are required",parent=self.root)
         else:
             try:
-                Upadate=messagebox.askyesno("Upadate", "Do you want to update this dtuent details",parent=self.root)
+                Upadate=messagebox.askyesno("Upadate", "Do you want to update this student details",parent=self.root)
                 if Upadate>0:
                     conn=mysql.connector.connect(host="localhost", username="root", password="Imath@123",database="icbtcampus")
                     my_cursor=conn.cursor()
@@ -453,22 +463,21 @@ class Student:
                 else:
                     if not Upadate:
                         return
-                messagebox.showinfo("Success", "Student details succesfully update completed",parent=self.root)
+                messagebox.showinfo("Success", "Student details succesfully updated",parent=self.root)
                 conn.commit()
                 self.fetch_data()
                 conn.close()
             except Exception as es:
                 messagebox.showerror("Error", f"Due To:{str(es)}",parent=self.root)
-
     
 
-    #================delete function=================
+    # Delete Data ------------>
     def delete_data(self):
         if self.var_std_id.get()=="":
             messagebox.showerror("Error","Student id must be required",parent=self.root)
         else:
             try:
-                delete=messagebox.askyesno("Student Delete Page","Do you want to delete this student",parent=self.root)
+                delete=messagebox.askyesno("Student Delete Page","Do you want to delete this student details",parent=self.root)
                 if delete>0:
                     conn=mysql.connector.connect(host="localhost", username="root", password="Imath@123",database="icbtcampus")
                     my_cursor=conn.cursor()
@@ -486,7 +495,7 @@ class Student:
                 messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)
     
 
-    #============reset===============
+    # Reset Data ------------>
     def reset_data(self):
         self.var_dep.set("Select Department")
         self.var_course.set("Select Course")
@@ -503,12 +512,84 @@ class Student:
         self.var_address.set("")
         self.var_teacher.set("")
         self.var_radio1.set("")
-                
-               
-
-
     
 
+    # Take a Photo Sample ------------>
+    def generate_dataset(self):
+        if self.var_dep.get()=="Select Department" or self.var_std_name.get()=="" or self.var_std_id.get()=="":
+            messagebox.showerror("Error","All Fields are required",parent=self.root)
+        else:
+            try:
+                conn=mysql.connector.connect(host="localhost", username="root", password="Imath@123",database="icbtcampus")
+                my_cursor=conn.cursor()
+                my_cursor.execute("select * from student")
+                myresult=my_cursor.fetchall()
+                id=0
+                for x in myresult:
+                    id+=1
+                my_cursor.execute("update student set Dep=%s, course=%s, Year=%s, Semester=%s,Name=%s, Division=%s, Roll=%s, Gender=%s, Dob=%s, Email=%s, Phone=%s, Address=%s, Teacher=%s, PhotoSample=%s where Student_id=%s", (
+                                                                                                                                                                                  
+                                                                                                                                                                                        self.var_dep.get(),
+                                                                                                                                                                                        self.var_course.get(),
+                                                                                                                                                                                        self.var_year.get(),
+                                                                                                                                                                                        self.var_semester.get(),
+                                                                                                                                                                                        self.var_std_name.get(),
+                                                                                                                                                                                        self.var_div.get(),
+                                                                                                                                                                                        self.var_roll.get(),
+                                                                                                                                                                                        self.var_gender.get(),
+                                                                                                                                                                                        self.var_dob.get(),
+                                                                                                                                                                                        self.var_email.get(),
+                                                                                                                                                                                        self.var_phone.get(),
+                                                                                                                                                                                        self.var_address.get(),
+                                                                                                                                                                                        self.var_teacher.get(),
+                                                                                                                                                                                        self.var_radio1.get(),
+                                                                                                                                                                                        self.var_std_id.get()==id+1
+                                                                                                                                                                                    ))
+                conn.commit()
+                self.fetch_data()
+                self.reset_data()
+                conn.close()
+
+
+ 
+
+                # Load predifined data ------->
+
+                face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+                
+                def face_cropped(img):
+                    gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+                    faces=face_classifier.detectMultiScale(gray,1.3,5)
+                    #scalling factor=1.3
+                    #minimum neighbor=5
+
+                    for (x,y,w,h) in faces:
+                        face_cropped=img[y:y+h,x:x+w]
+                        return face_cropped
+
+                cap=cv2.VideoCapture(0)
+                img_id=0
+                while True:
+                    ret,my_frame=cap.read()
+                    if face_cropped(my_frame) is not None:
+                        img_id+=1
+                        face=cv2.resize(face_cropped(my_frame),(450,450))
+                        face=cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
+                        file_name_path="data/user."+str(id)+"."+str(img_id)+".jpg"
+                        cv2.imwrite(file_name_path,face)
+                        cv2.putText(face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)
+                        cv2.imshow("Crooped Face",face)
+
+                    if cv2.waitKey(1)==13 or int(img_id)==100:
+                        break
+                cap.release()
+                cv2.destroyAllWindows()
+                
+                messagebox.showinfo("Result","Generating data sets completed...!!",parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error",f"Due To:{str(es)}",parent=self.root)    
+                
+                
 if __name__ == "__main__":
     root=Tk()
     obj=Student(root)
