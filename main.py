@@ -161,7 +161,6 @@ class Student_Attendance_System:
         self.new_window=Toplevel(self.root)
         self.app=Student( self.new_window)
 
-
     def train_data(self):
         self.new_window=Toplevel(self.root)
         self.app=Train( self.new_window)
